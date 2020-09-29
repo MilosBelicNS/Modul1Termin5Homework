@@ -1,0 +1,6 @@
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\obj\Debug\Termin5DomaciPrvenstvo.csprojAssemblyReference.cache
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\bin\Debug\Termin5DomaciPrvenstvo.exe.config
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\bin\Debug\Termin5DomaciPrvenstvo.exe
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\bin\Debug\Termin5DomaciPrvenstvo.pdb
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\obj\Debug\Termin5DomaciPrvenstvo.exe
+D:\Software development\C Sharp Practice\Termin5DomaciPrvenstvo\Termin5DomaciPrvenstvo\obj\Debug\Termin5DomaciPrvenstvo.pdb
