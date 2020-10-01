@@ -170,14 +170,14 @@ namespace Termin5DomaciPrvenstvo.src.UI
         public static SvetskoPrvenstvo PronadjiPrvenstvoPoId(int id)
         {
             SvetskoPrvenstvo retVal = null;
-            try
+            for (int i = 0; i < listaPrvenstava.Count; i++)
             {
-                retVal = listaPrvenstava[id];
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.WriteLine("Ne postoji id u listi drzava!");
-                throw;
+                SvetskoPrvenstvo svetskoPrvenstvo = listaPrvenstava[i];
+                if (svetskoPrvenstvo.Id == id)
+                {
+                    retVal = svetskoPrvenstvo;
+                    break;
+                }
             }
             return retVal;
         }
@@ -225,7 +225,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
             Drzava tempDrzava;
             SvetskoPrvenstvo tempSvetskoPrvenstvo;
 
-            if (!DrzavaUI.ProveraDaLiDrzavaPostoji(svDrzavaDomacin))
+            if (!ProveraPrvenstva(svNaziv))
             {        //ID CE SE DODELITI AUTOMATSKI
                 tempDrzava = DrzavaUI.UnosNoveDrzave(svDrzavaDomacin, svGlavniGrad);
                 tempSvetskoPrvenstvo = new SvetskoPrvenstvo(svNaziv, svGodinaOdrzavanja, tempDrzava);
@@ -257,7 +257,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
         // izmena prvenstva
         public static void IzmenaPodatakaOPrvenstvu()
         {
-            SvetskoPrvenstvo svetskoPrvenstvo = PronadjiPrvenstvoPoId();
+            SvetskoPrvenstvo svetskoPrvenstvo = PronadjiPrvenstvoPoNazivu();
             if (svetskoPrvenstvo != null)
             {
                 Console.WriteLine("Unesi novi naziv :");
@@ -269,7 +269,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
                 Console.WriteLine("Unesi glavni grad :");
                 String svGlavniGrad = IOPomocnaKlasa.OcitajTekst();
                 Drzava tempDrzava;
-                if (!DrzavaUI.ProveraDaLiDrzavaPostoji(svDrzavaDomacin))
+                if (!ProveraPrvenstva(naziv))
                 {
                     tempDrzava = DrzavaUI.UnosNoveDrzave(svDrzavaDomacin, svGlavniGrad);
                     svetskoPrvenstvo.Naziv = naziv;
@@ -285,7 +285,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
         //brisanje drzave
         public static void BrisanjePodatakaOPrvenstvu()
         {
-            SvetskoPrvenstvo svetskoPrvenstvo = PronadjiPrvenstvoPoId();
+            SvetskoPrvenstvo svetskoPrvenstvo = PronadjiPrvenstvoPoNazivu();
             if (svetskoPrvenstvo != null)
             {
                 listaPrvenstava.Remove(svetskoPrvenstvo);
@@ -341,6 +341,18 @@ namespace Termin5DomaciPrvenstvo.src.UI
         }
 
 
+        public static bool ProveraPrvenstva(string naziv)
+        {
+            bool provera = false;
 
+            foreach(SvetskoPrvenstvo svetskoPrvenstvo in listaPrvenstava)
+            {
+                if(naziv == svetskoPrvenstvo.Naziv)
+                {
+                    provera = true;
+                }
+            }
+            return provera;
+        }
     }
 }

@@ -185,7 +185,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
         // izmena predmeta
         public static void IzmenaPodatakaODrzavi()
         {
-            Drzava drzava = PronadjiDrzavuPoId();
+            Drzava drzava = PronadjiDrzavuPoNazivu();
             if (drzava != null)
             {
                 Console.WriteLine("Unesi novi naziv :");
@@ -203,7 +203,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
         //brisanje drzave
         public static void BrisanjePodatakaODrzavi()
         {
-            Drzava drzava = PronadjiDrzavuPoId();
+            Drzava drzava = PronadjiDrzavuPoNazivu();
             if (drzava != null)
             {
                listaDrzava.Remove(drzava);
@@ -221,7 +221,7 @@ namespace Termin5DomaciPrvenstvo.src.UI
             {
                 if (drzava.Naziv == naziv)
                 {
-                    return false;
+                    provera = true;
                 }
                
             }
